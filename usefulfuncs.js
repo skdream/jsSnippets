@@ -63,3 +63,28 @@ function loadUrl(o){
         el = null;    
     } 
 }
+
+// 扩展class,实现方法继承
+var extend = function(class1, class2){
+     for(var obj in class2)
+          ({}).hasOwnProperty.call(class2, obj) && ( class1[obj] = class2[obj] );
+      return a;
+},
+
+// 自定义事件
+eventEmitter = function(){
+     var obj = {};
+     return {
+          on: function (evName, callback){
+               obj[evName] = obj[evName] || [];
+               obj[evName].push(callback);
+          },
+          emit: function(evName,callback){
+               obj[evName] = obj[evName] || [];
+               for (var len = obj[evName].length, i = 0; i < len; i++ ){
+                    obj[evName][i](callback);
+               }
+          }
+     }
+}
+

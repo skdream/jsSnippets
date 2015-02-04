@@ -1,0 +1,22 @@
+{
+  "name": "downloadapp",
+  "version": "0.0.1",
+  "description": "download static files by url",
+  "main": "app.js",
+  "dependencies": {
+    "cp-file": "^2.0.2",
+    "download": "^3.3.0",
+    "download-status": "^2.1.1",
+    "read-package-json": "^1.2.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "download",
+    "files"
+  ],
+  "author": "skdream <jiyongjia@gmail.com>",
+  "license": "ISC"
+}

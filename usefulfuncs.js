@@ -88,3 +88,34 @@ eventEmitter = function(){
      }
 }
 
+
+var cloneObj = function(obj) {
+  var newObj = (obj instanceof Array) ? [] : {};
+  for (i in obj) {
+    if (i == 'cloneObj') continue;
+    if (obj[i] && typeof obj[i] == "object") {
+      newObj[i] = cloneObj(obj[i]);
+    } else newObj[i] = obj[i]
+  } return newObj;
+};
+
+
+var getYearWeek = function (a, b, c) { 
+  var d1 = new Date(a, b-1, c), d2 = new Date(a, 0, 1), 
+  d = Math.round((d1 - d2) / 86400000); 
+  return Math.ceil((d + ((d2.getDay() + 1) - 1)) / 7); 
+};
+alert(getYearWeek(2014, 12, 4));
+
+
+if (true || !(window.console && console.log)) {
+  (function() {
+    var noop = function() {};
+    var methods = ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error', 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'markTimeline', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'];
+    var length = methods.length;
+    var console = window.console = {};
+    while (length--) {
+        console[methods[length]] = noop;
+    }
+  }());
+}

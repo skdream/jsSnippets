@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>a.html</title>
+</head>
+<body>
+a.html
+<div id="container">a.html 内容内容</div>
+
+<script>
+
+function getElement(){
+	var con = document.getElementById('container');
+	console.log(con.innerHTML);
+}
+
+iframebInner = window.parent.callAiframe();
+console.log(iframebInner);
+
+var iframea = window.parent.document.getElementById('iframeb');
+console.log(iframea);
+</script>
+</body>
+</html>

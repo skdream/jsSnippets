@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>script Tag</title>
+</head>
+<body>
+	script Tag 执行顺序 测试;
+
+	<script>
+		var script1 = document.createElement("script");
+		script1.async = true;
+		script1.src = "http://172.18.30.70:8080/file1.js";
+		document.body.appendChild(script1);
+	</script>
+
+	<script>
+		(function add(){
+			var num = 4 +5;
+
+			return num +4;
+		})();
+	</script>
+
+	<script src="http://172.18.30.70:8080/file1.js"></script>
+	<script>
+		var script = document.createElement("script");
+		script.src = "http://172.18.30.70:8080/file1.js";
+
+		document.body.appendChild(script);
+	</script>
+</body>
+</html>

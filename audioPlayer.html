@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>audio player icon</title>
+	<style>
+		.touchstyle-headphone{
+		    position: fixed;
+		    z-index: 99;
+		    top: 20px;
+		    right: 20px;
+
+		    box-sizing: border-box;
+		    width: 32px;
+		    height: 32px;
+
+		    cursor: pointer;
+
+		    border: 2px solid rgba(255,255,255,.9);
+		    border-radius: 16px;
+		    background-color: rgba(0,0,0,.3);
+		    background-size: 20px 20px;
+		}.touchstyle-headphone > .icon{
+		    width: 14px;
+		    height: 14px;
+		    margin: 4px 0 0 5px;
+
+		    border-width: 2px 2px medium;
+		    border-style: solid solid none;
+		    border-color: rgba(255,255,255,.9);
+		    border-radius: 50px 50px 0 0;
+		}
+		.touchstyle-headphone > .icon:before,
+		.touchstyle-headphone > .icon:after{
+		    position: absolute;
+		    top: 14px;
+		    width: 4px;
+		    height: 8px;
+		    content: '';
+		    background-color: rgba(255,255,255,.9);
+		}
+		.touchstyle-headphone > .icon:before{
+		    left: 8px;
+		    border-radius: 0 2px 2px 0;
+		}.touchstyle-headphone > .icon:after{
+		    left: 16px;
+		    border-radius: 2px 0 0 2px;
+		}.play-audio{
+		    -webkit-animation: touchstyle-music-paly-animate 1s linear infinite;
+		       -moz-animation: touchstyle-music-paly-animate 1s linear infinite;
+		        -ms-animation: touchstyle-music-paly-animate 1s linear infinite;
+		            animation: touchstyle-music-paly-animate 1s linear infinite;
+		}@keyframes touchstyle-music-paly-animate{
+		    0%{
+		        transform: rotate(0deg);
+		    }100%{
+		        transform: rotate(360deg);
+		    }
+		}@-ms-keyframes touchstyle-music-paly-animate{
+		    0%{
+		        -ms-transform: rotate(0deg);
+		    }100%{
+		        -ms-transform: rotate(360deg);
+		    }
+		}@-moz-keyframes touchstyle-music-paly-animate{
+		    0%{
+		        -moz-transform: rotate(0deg);
+		    }100%{
+		        -moz-transform: rotate(360deg);
+		    }
+		}@-webkit-keyframes touchstyle-music-paly-animate{
+		    0%{
+		        -webkit-transform: rotate(0deg);
+		    }100%{
+		        -webkit-transform: rotate(360deg);
+		    }
+		}audio{
+		    position: absolute;
+		    top: -100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="J-audio" class="touchstyle-headphone play-audio"><div class="icon"></div></div>
+</body>
+</html>

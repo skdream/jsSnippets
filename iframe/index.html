@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<iframe id="iframea" src="a.html" frameborder="0"></iframe>
+	<iframe id="iframeb" src="b.html" frameborder="0"></iframe>
+<script>
+function callAiframe(){
+	//window.iframe.
+	var iframe = document.getElementById('iframea');
+	var container = iframe.contentWindow.document.getElementById('container');
+	return container.innerHTML;
+}
+</script>
+</body>
+</html>

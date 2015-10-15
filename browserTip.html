@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!--[if lt IE 8]>
+<script>
+    (function () {
+
+
+        function showie() {
+            if (window.statis) {
+                try {
+                    var b = navigator.userAgent.toLowerCase();
+                    var version = b.match(/.+(?:rv|it|ra|ie)[\/: ]([\d.]+)/)[1];
+                    window.statis.trackEvent("isie", "show", version);
+                }
+                catch (e) {
+                }
+
+            } else {
+                setTimeout(showie, 1000);
+            }
+        }
+        showie();
+    })();
+
+</script>
+<div id="lowie-tip" class="lowie-tip">
+您现在使用的浏览器版本过低，可能会导致部分图片和信息的缺失，为获得更好的用户体验。请立即<a href="http://www.microsoft.com/china/windows/IE/upgrade/index.aspx" target="_blank" title="免费升级至IE8浏览器">免费升级</a>或下载使用<a href="http://liulanqi.baidu.com/"  target="_blank" title="百度浏览器">百度浏览器</a></div>
+<style>
+      .lowie-tip {
+          height: 24px;
+          line-height: 1.8;
+          font-weight:normal;
+          text-align: center;
+          border-bottom:1px solid #fce4b5;
+          background-color:#FFFF9B;
+          color:#e27839;
+          position: relative;
+          font-size: 14px;
+          text-shadow: 0px 0px 1px #efefef;
+          padding: 5px 0;
+      }
+      .lowie-tip a {
+          color:#08c;
+          text-decoration: none;
+      }
+  </style>
+<![endif]-->
+</body>
+</html>

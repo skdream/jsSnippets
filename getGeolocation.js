@@ -18,3 +18,5 @@ window.navigator.geolocation.getCurrentPosition(function (u) {
 }, {
 	enableHighAccuracy : true
 })
+
+

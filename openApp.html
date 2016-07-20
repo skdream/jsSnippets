@@ -1,0 +1,130 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale
+=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <style> html{background:#f2f2f2 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGEAAACICAAAAADSJto1AAACtklEQVR4Ae3XTXKrMBAE4Nz
+/Qn2MOcTUrGY3Wy14eS084JL8E1tKvbyoFwZDqj8hYYp8xOycBXczfS9m7jcFNx0T875gBMYbFPICxhMpuI6OnwUC8wgKNkEwT2EGQOIQXOfEU7BJgqWgs
++K74D9YsF2wHyzoLuh0wZawhCUs4ccItj0V++VCeSr2P9xLSyjb3ZRvFJYQ2kn8i8ISllC8k/KNv7glRERF4iq1PiLeF/KVw/qHhgh5x7Z36ijB2deYPk7IOWkPDBJymtpJGiVkYysOEnJW2q8DhGZlc
++UHCCWzMZ1vzOvC9mR+rbDe7pewhCU0sV3w6UJME3y6ELtQbBJg5SLEJMFTmHURcRFiiymAb4dQfMoqbHERylZsPBBbSSG20QSBs1C2rfgsgAKJsHH9
+/E84DoEEjYH9BFIgQSPc3os7q9iVQhLjkv0pkJgEUEhjfH8KibyrlML+VhiaJSxhCUtYwhJE/TlBRONGINwINDSaAPacAPhDwQXSEeI5QRBtTP4G
+/ORfKOBvC+aMRbAQEDAh4BF5V3Ds6cwSz0eNaR1KAMEdU7st4IgFRD9DQY0tEFYIWGS6e03ktsDJBj89IDlg9LMLogygjNwTsvIk5DWoqDMK5SVcrsGu18FeEZgcm0Ej2P
++agCrElWCcBfuMqjmU3suCdATBEeEZIIYK9bifdiGjBYFmBxACf1UwaE9wIAKpBSRSkBrkzn1B4D0BQO0APBQCPYQmj4ToCXIRRJxexKuzVE
+/jLGRyH9Dbgt8XFHpPcBWRsLMQ/rVnK5A3VH3eUNB9KRlxoG1rBYGcNhzVRz71ncKeehokrFYZV1rvCwBOG62CAhGmAuj1LPnR4ai8O
++TLgnKQDnZ4ClcdAh43QFrhUT4FPV5LXIyj93NHzmMoAP+yEA+imrs5grPgj4XZ+QNUftTjdQ779AAAAABJRU5ErkJggg==') center
+ 200px no-repeat;background-size:48.5px 68px}body{background:#f2f2f2} </style>
+        <link href="https://img3.doubanio.com/f/frodo/88aabd46d156cececd94d4120969e99d6bf28959/css/card
+/base.css" rel="stylesheet">
+        
+    </head>
+    <body>
+        <img src="https://img1.doubanio.com/img/files/file-1431416697.png" style="position: absolute
+; z-index: -222; width: 0; height: 0;">
+
+        <div class="page">
+            
+        
+    <script>
+        var mobileAppInstall = (function(){
+            var ua = navigator.userAgent,
+                    loadIframe,
+                    win = window;
+
+            function getIntentIframe(){
+                if(!loadIframe){
+                    var iframe = document.createElement("iframe");
+                    iframe.style.cssText = "display:none;width:0px;height:0px;";
+                    document.body.appendChild(iframe);
+                    loadIframe = iframe;
+                }
+                return loadIframe;
+            }
+
+            function getChromeIntent(){
+                var INTENT_Scheme = 'douban://douban.com/group/116210?from=mdouban'.replace(/douban:/, 'intent:');
+                return  INTENT_Scheme + "#Intent;scheme=douban;package=com.douban.frodo;end";
+            }
+
+            var appInstall = {
+                isChrome : ua.match(/Chrome\/([\d.]+)/) || ua.match(/CriOS\/([\d.]+)/),
+                isAndroid: ua.match(/(Android);?[\s\/]+([\d.]+)?/),
+                inClient: false,
+                appurl: 'douban://douban.com/group/116210?from=mdouban',
+                h5url : 'https://www.douban.com/doubanapp/?from_card=1&amp;channel=card_topiclist'.replace(/&amp;/g, '&'),
+                timeout:500,
+
+                getiOSVersion: function() {
+                    if (/iP(hone|od|ad)/.test(navigator.platform)) {
+                        var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+                        return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+                    }
+                    return null;
+                },
+                /**
+                * 尝试跳转appurl,如果跳转失败，进入h5url
+                * @param {Object} appurl 应用地址
+                * @param {Object} h5url  http地址
+                */
+                open: function(){
+                    var t = Date.now();
+                    appInstall.openApp(this.appurl);
+                    setTimeout(function(){
+                        appInstall.openH5();
+                    }, this.timeout)
+                },
+
+                openApp: function() {
+                    if (this.isChrome) {
+                        if (this.isAndroid && !this.inClient) {
+                            win.location.href = getChromeIntent();
+                        } else {
+                            win.location.href = this.appurl;
+                        }
+                    } else {
+                        var version = this.getiOSVersion();
+                        if (version && version[0] > 8) {
+                            // iOS 9 do not support custom protocal in iframe src
+                            // http://stackoverflow.com/questions/31891777/ios-9-safari-iframe-src-with-custom-url-scheme-not-working
+
+                            if (navigator.userAgent.indexOf('com.douban.frodo') > -1) {
+                                window.location.href = this.appurl;
+                            } else {
+                                this.openH5();
+                            }
+                        } else {
+                            getIntentIframe().src = this.appurl;
+                        }
+                    }
+                },
+
+                openH5:function(){
+                    win.location.href = this.h5url;
+                }
+            }
+
+            return appInstall;
+        })();
+
+        mobileAppInstall.open();
+    </script>
+
+    <p>跳转中，请稍候...</p>
+
+
+        </div>
+
+        <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script src="https://img3.doubanio.com/f/frodo/ee8e0c54293aefb5709ececbdf082f8091ad5e49/js/card
+/zepto.min.js"></script>
+        <script src="https://img3.doubanio.com/f/frodo/84720f049b3dbbbb31f68073c0c76032d7612705/js/card
+/weixin.js"></script>
+        <script src="https://img3.doubanio.com/f/frodo/c213937e9c16f1ea6e4d3f4e7ec0d0ddf9b5bae7/js/card
+/ga.js"></script>
+        
+    </body>
+</html>

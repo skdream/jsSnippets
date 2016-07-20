@@ -1,0 +1,10 @@
+/db/
+/upfile/
+/node_modules/
+.DS_Store*
+Thumbs.db
+ehthumbs.db
+*.rar
+*.exe
+*.dmg
+*.psd
